@@ -1,0 +1,1169 @@
+---
+API: 2
+OpenSesame: 3.0.2
+Platform: nt
+---
+set width 1024
+set uniform_coordinates "yes"
+set title "GoogleEffect"
+set subject_parity "even"
+set subject_nr 0
+set start "experiment"
+set sampler_backend "legacy"
+set mouse_backend "xpyriment"
+set keyboard_backend "legacy"
+set height 768
+set foreground "white"
+set font_size 18
+set font_italic "no"
+set font_family "chinese-japanese-korean"
+set font_bold "no"
+set description "Default description"
+set coordinates "uniform"
+set compensation 0
+set color_backend "legacy"
+set clock_backend "legacy"
+set canvas_backend "xpyriment"
+set bidi "yes"
+set background "black"
+
+define sketchpad Easy_Correct
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答對了 x=0 y=0 z_index=0
+
+define sketchpad Easy_Correct_1
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答對了 x=0 y=0 z_index=0
+
+define sequence Easy_First
+	set flush_keyboard "yes"
+	set description "Runs a number of items in sequence"
+	run Questions_Easy always
+	run break_1 always
+	run Stroop always
+	run break_2 always
+	run Questions_Hard always
+	run break_3 always
+	run Stroop always
+
+define sketchpad Easy_Wrong
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答錯了 x=0 y=0 z_index=0
+
+define sketchpad Easy_Wrong_1
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答錯了 x=0 y=0 z_index=0
+
+define logger Easy_logger
+	set description "Logs experimental data"
+	set auto_log "yes"
+
+define logger Easy_logger_1
+	set description "Logs experimental data"
+	set auto_log "yes"
+
+define sketchpad Easy_pad
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=16 html=yes show_if=always text="[QUESTION]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text="否:F         是:J" x=0 y=128 z_index=0
+
+define sketchpad Easy_pad_1
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=16 html=yes show_if=always text="[QUESTION]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text="否:F         是:J" x=0 y=128 z_index=0
+
+define keyboard_response Easy_response
+	set timeout "infinite"
+	set flush "no"
+	set duration "keypress"
+	set description "Collects keyboard responses"
+	set allowed_responses "j;f"
+
+define keyboard_response Easy_response_1
+	set timeout "infinite"
+	set flush "no"
+	set duration "keypress"
+	set description "Collects keyboard responses"
+	set allowed_responses "j;f"
+
+define sketchpad Hard_Correct
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答對了 x=0 y=0 z_index=0
+
+define sketchpad Hard_Correct_1
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答對了 x=0 y=0 z_index=0
+
+define sequence Hard_First
+	set flush_keyboard "yes"
+	set description "Runs a number of items in sequence"
+	run Questions_Hard_1 always
+	run break_1_1 always
+	run Stroop_1 always
+	run break_2_1 always
+	run Questions_Easy_1 always
+	run break_3_1 always
+	run Stroop_1 always
+
+define sketchpad Hard_Wrong
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答錯了 x=0 y=0 z_index=0
+
+define sketchpad Hard_Wrong_1
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答錯了 x=0 y=0 z_index=0
+
+define logger Hard_logger
+	set description "Logs experimental data"
+	set auto_log "yes"
+
+define logger Hard_logger_1
+	set description "Logs experimental data"
+	set auto_log "yes"
+
+define sketchpad Hard_pad
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=16 html=yes show_if=always text="[QUESTION]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text="否:F         是:J" x=0 y=128 z_index=0
+
+define sketchpad Hard_pad_1
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=16 html=yes show_if=always text="[QUESTION]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text="否:F         是:J" x=0 y=128 z_index=0
+
+define keyboard_response Hard_response
+	set timeout "infinite"
+	set flush "no"
+	set duration "keypress"
+	set description "Collects keyboard responses"
+	set allowed_responses "j;f"
+
+define keyboard_response Hard_response_1
+	set timeout "infinite"
+	set flush "no"
+	set duration "keypress"
+	set description "Collects keyboard responses"
+	set allowed_responses "j;f"
+
+define loop Questions_Easy
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Trial_Easy"
+	set description "Repeatedly runs another item"
+	set cycles 16
+	set column_order "QUESTION;correct_response"
+	set break_if "never"
+	setcycle 0 correct_response "j"
+	setcycle 0 QUESTION "Are dinosaurs extinct? "
+	setcycle 1 correct_response "f"
+	setcycle 1 QUESTION "Was Moby Dick written by Herman Melville?"
+	setcycle 2 correct_response "j"
+	setcycle 2 QUESTION "Is the formula for water H20? "
+	setcycle 3 correct_response "f"
+	setcycle 3 QUESTION "Is a stop sign red in color?"
+	setcycle 4 correct_response "j"
+	setcycle 4 QUESTION "Are there 24 hours in a day?"
+	setcycle 5 correct_response "f"
+	setcycle 5 QUESTION "Is the current president of the United States Ronald Reagan?"
+	setcycle 6 correct_response "j"
+	setcycle 6 QUESTION "Does 8 plus 8 equal 16?"
+	setcycle 7 correct_response "f"
+	setcycle 7 QUESTION "Was John F. Kennedy assassinated in 1994?"
+	setcycle 8 correct_response "j"
+	setcycle 8 QUESTION "Is oxygen a metal?"
+	setcycle 9 correct_response "f"
+	setcycle 9 QUESTION "Are there 15 months in a year?"
+	setcycle 10 correct_response "j"
+	setcycle 10 QUESTION "Is ketchup made with tomatoes?"
+	setcycle 11 correct_response "f"
+	setcycle 11 QUESTION "Does 5 plus 7 equal 30?"
+	setcycle 12 correct_response "j"
+	setcycle 12 QUESTION "Was Romeo and Juliet written by William Shakespeare?"
+	setcycle 13 correct_response "f"
+	setcycle 13 QUESTION "Do all countries have at least two colors in their flags?"
+	setcycle 14 correct_response "j"
+	setcycle 14 QUESTION "Was Cat in the Hat written by J.D. Salinger?"
+	setcycle 15 correct_response "f"
+	setcycle 15 QUESTION "Does a triangle have 3 sides?"
+	run Trial_Easy
+
+define loop Questions_Easy_1
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Trial_Easy_1"
+	set description "Repeatedly runs another item"
+	set cycles 16
+	set column_order "QUESTION;correct_response"
+	set break_if "never"
+	setcycle 0 correct_response "j"
+	setcycle 0 QUESTION "Are dinosaurs extinct? "
+	setcycle 1 correct_response "f"
+	setcycle 1 QUESTION "Was Moby Dick written by Herman Melville?"
+	setcycle 2 correct_response "j"
+	setcycle 2 QUESTION "Is the formula for water H20? "
+	setcycle 3 correct_response "f"
+	setcycle 3 QUESTION "Is a stop sign red in color?"
+	setcycle 4 correct_response "j"
+	setcycle 4 QUESTION "Are there 24 hours in a day?"
+	setcycle 5 correct_response "f"
+	setcycle 5 QUESTION "Is the current president of the United States Ronald Reagan?"
+	setcycle 6 correct_response "j"
+	setcycle 6 QUESTION "Does 8 plus 8 equal 16?"
+	setcycle 7 correct_response "f"
+	setcycle 7 QUESTION "Was John F. Kennedy assassinated in 1994?"
+	setcycle 8 correct_response "j"
+	setcycle 8 QUESTION "Is oxygen a metal?"
+	setcycle 9 correct_response "f"
+	setcycle 9 QUESTION "Are there 15 months in a year?"
+	setcycle 10 correct_response "j"
+	setcycle 10 QUESTION "Is ketchup made with tomatoes?"
+	setcycle 11 correct_response "f"
+	setcycle 11 QUESTION "Does 5 plus 7 equal 30?"
+	setcycle 12 correct_response "j"
+	setcycle 12 QUESTION "Was Romeo and Juliet written by William Shakespeare?"
+	setcycle 13 correct_response "f"
+	setcycle 13 QUESTION "Do all countries have at least two colors in their flags?"
+	setcycle 14 correct_response "j"
+	setcycle 14 QUESTION "Was Cat in the Hat written by J.D. Salinger?"
+	setcycle 15 correct_response "f"
+	setcycle 15 QUESTION "Does a triangle have 3 sides?"
+	run Trial_Easy_1
+
+define loop Questions_Hard
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Trial_Hard"
+	set description "Repeatedly runs another item"
+	set cycles 16
+	set column_order "QUESTION;correct_response"
+	set break_if "never"
+	setcycle 0 correct_response "j"
+	setcycle 0 QUESTION "Does Denmark contain more square miles than Costa Rica?"
+	setcycle 1 correct_response "f"
+	setcycle 1 QUESTION "Did Benjamin Franklin give piano lessons?"
+	setcycle 2 correct_response "j"
+	setcycle 2 QUESTION "Does an Italian deck of card contain jacks?"
+	setcycle 3 correct_response "f"
+	setcycle 3 QUESTION "Did Alfred Hitchcock eat meat?"
+	setcycle 4 correct_response "j"
+	setcycle 4 QUESTION "Are more babies conceived in February than in any other month?"
+	setcycle 5 correct_response "f"
+	setcycle 5 QUESTION "Do all countries have at least two colors in their flags?"
+	setcycle 6 correct_response "j"
+	setcycle 6 QUESTION "Was Czar Nicholas II executed in 1917?"
+	setcycle 7 correct_response "f"
+	setcycle 7 QUESTION "Is Krypton’s atomic number 26?"
+	setcycle 8 correct_response "j"
+	setcycle 8 QUESTION "Is the average age of a human eyelash 150 days?"
+	setcycle 9 correct_response "f"
+	setcycle 9 QUESTION "Was Pompey defeated by Julius Caesar in 48 B.C.?"
+	setcycle 10 correct_response "j"
+	setcycle 10 QUESTION "Were family names first used in Roman times?"
+	setcycle 11 correct_response "f"
+	setcycle 11 QUESTION "Is myrmecophobia fear of ants?"
+	setcycle 12 correct_response "j"
+	setcycle 12 QUESTION "Is Jones the most common name in America?"
+	setcycle 13 correct_response "f"
+	setcycle 13 QUESTION "Do insects feel hunger?"
+	setcycle 14 correct_response "j"
+	setcycle 14 QUESTION "Was Pepin king of the Franks from 482 to 511 A.D.?"
+	setcycle 15 correct_response "f"
+	setcycle 15 QUESTION "Is a quince a fruit?"
+	run Trial_Hard
+
+define loop Questions_Hard_1
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Trial_Hard_1"
+	set description "Repeatedly runs another item"
+	set cycles 16
+	set column_order "QUESTION;correct_response"
+	set break_if "never"
+	setcycle 0 correct_response "j"
+	setcycle 0 QUESTION "Does Denmark contain more square miles than Costa Rica?"
+	setcycle 1 correct_response "f"
+	setcycle 1 QUESTION "Did Benjamin Franklin give piano lessons?"
+	setcycle 2 correct_response "j"
+	setcycle 2 QUESTION "Does an Italian deck of card contain jacks?"
+	setcycle 3 correct_response "f"
+	setcycle 3 QUESTION "Did Alfred Hitchcock eat meat?"
+	setcycle 4 correct_response "j"
+	setcycle 4 QUESTION "Are more babies conceived in February than in any other month?"
+	setcycle 5 correct_response "f"
+	setcycle 5 QUESTION "Do all countries have at least two colors in their flags?"
+	setcycle 6 correct_response "j"
+	setcycle 6 QUESTION "Was Czar Nicholas II executed in 1917?"
+	setcycle 7 correct_response "f"
+	setcycle 7 QUESTION "Is Krypton’s atomic number 26?"
+	setcycle 8 correct_response "j"
+	setcycle 8 QUESTION "Is the average age of a human eyelash 150 days?"
+	setcycle 9 correct_response "f"
+	setcycle 9 QUESTION "Was Pompey defeated by Julius Caesar in 48 B.C.?"
+	setcycle 10 correct_response "j"
+	setcycle 10 QUESTION "Were family names first used in Roman times?"
+	setcycle 11 correct_response "f"
+	setcycle 11 QUESTION "Is myrmecophobia fear of ants?"
+	setcycle 12 correct_response "j"
+	setcycle 12 QUESTION "Is Jones the most common name in America?"
+	setcycle 13 correct_response "f"
+	setcycle 13 QUESTION "Do insects feel hunger?"
+	setcycle 14 correct_response "j"
+	setcycle 14 QUESTION "Was Pepin king of the Franks from 482 to 511 A.D.?"
+	setcycle 15 correct_response "f"
+	setcycle 15 QUESTION "Is a quince a fruit?"
+	run Trial_Hard_1
+
+define loop Stroop
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Trial_Stroop_1"
+	set description "Repeatedly runs another item"
+	set cycles 48
+	set column_order "COLORS;WORD;RELATED;correct_response"
+	set break_if "never"
+	setcycle 0 correct_response "j"
+	setcycle 0 COLORS "red"
+	setcycle 0 WORD "Google"
+	setcycle 0 RELATED "R"
+	setcycle 1 correct_response "j"
+	setcycle 1 COLORS "red"
+	setcycle 1 WORD "Yahoo"
+	setcycle 1 RELATED "R"
+	setcycle 2 correct_response "j"
+	setcycle 2 COLORS "red"
+	setcycle 2 WORD "screen"
+	setcycle 2 RELATED "R"
+	setcycle 3 correct_response "j"
+	setcycle 3 COLORS "red"
+	setcycle 3 WORD "browser"
+	setcycle 3 RELATED "R"
+	setcycle 4 correct_response "j"
+	setcycle 4 COLORS "red"
+	setcycle 4 WORD "modem"
+	setcycle 4 RELATED "R"
+	setcycle 5 correct_response "j"
+	setcycle 5 COLORS "red"
+	setcycle 5 WORD "keys"
+	setcycle 5 RELATED "R"
+	setcycle 6 correct_response "j"
+	setcycle 6 COLORS "red"
+	setcycle 6 WORD "internet"
+	setcycle 6 RELATED "R"
+	setcycle 7 correct_response "j"
+	setcycle 7 COLORS "red"
+	setcycle 7 WORD "computer"
+	setcycle 7 RELATED "U"
+	setcycle 8 correct_response "j"
+	setcycle 8 COLORS "red"
+	setcycle 8 WORD "Target"
+	setcycle 8 RELATED "U"
+	setcycle 9 correct_response "j"
+	setcycle 9 COLORS "red"
+	setcycle 9 WORD "Nike"
+	setcycle 9 RELATED "U"
+	setcycle 10 correct_response "j"
+	setcycle 10 COLORS "red"
+	setcycle 10 WORD "Coca Cola"
+	setcycle 10 RELATED "U"
+	setcycle 11 correct_response "j"
+	setcycle 11 COLORS "red"
+	setcycle 11 WORD "Yoplait"
+	setcycle 11 RELATED "U"
+	setcycle 12 correct_response "j"
+	setcycle 12 COLORS "red"
+	setcycle 12 WORD "table"
+	setcycle 12 RELATED "U"
+	setcycle 13 correct_response "j"
+	setcycle 13 COLORS "red"
+	setcycle 13 WORD "telephone"
+	setcycle 13 RELATED "U"
+	setcycle 14 correct_response "j"
+	setcycle 14 COLORS "red"
+	setcycle 14 WORD "book"
+	setcycle 14 RELATED "U"
+	setcycle 15 correct_response "j"
+	setcycle 15 COLORS "red"
+	setcycle 15 WORD "hammer"
+	setcycle 15 RELATED "U"
+	setcycle 16 correct_response "j"
+	setcycle 16 COLORS "red"
+	setcycle 16 WORD "nails"
+	setcycle 16 RELATED "U"
+	setcycle 17 correct_response "j"
+	setcycle 17 COLORS "red"
+	setcycle 17 WORD "chair"
+	setcycle 17 RELATED "U"
+	setcycle 18 correct_response "j"
+	setcycle 18 COLORS "red"
+	setcycle 18 WORD "piano"
+	setcycle 18 RELATED "U"
+	setcycle 19 correct_response "j"
+	setcycle 19 COLORS "red"
+	setcycle 19 WORD "pencil"
+	setcycle 19 RELATED "U"
+	setcycle 20 correct_response "j"
+	setcycle 20 COLORS "red"
+	setcycle 20 WORD "paper"
+	setcycle 20 RELATED "U"
+	setcycle 21 correct_response "j"
+	setcycle 21 COLORS "red"
+	setcycle 21 WORD "eraser"
+	setcycle 21 RELATED "U"
+	setcycle 22 correct_response "j"
+	setcycle 22 COLORS "red"
+	setcycle 22 WORD "laser"
+	setcycle 22 RELATED "U"
+	setcycle 23 correct_response "j"
+	setcycle 23 COLORS "red"
+	setcycle 23 WORD "television"
+	setcycle 23 RELATED "U"
+	setcycle 24 correct_response "f"
+	setcycle 24 COLORS "blue"
+	setcycle 24 WORD "Google"
+	setcycle 24 RELATED "R"
+	setcycle 25 correct_response "f"
+	setcycle 25 COLORS "blue"
+	setcycle 25 WORD "Yahoo"
+	setcycle 25 RELATED "R"
+	setcycle 26 correct_response "f"
+	setcycle 26 COLORS "blue"
+	setcycle 26 WORD "screen"
+	setcycle 26 RELATED "R"
+	setcycle 27 correct_response "f"
+	setcycle 27 COLORS "blue"
+	setcycle 27 WORD "browser"
+	setcycle 27 RELATED "R"
+	setcycle 28 correct_response "f"
+	setcycle 28 COLORS "blue"
+	setcycle 28 WORD "modem"
+	setcycle 28 RELATED "R"
+	setcycle 29 correct_response "f"
+	setcycle 29 COLORS "blue"
+	setcycle 29 WORD "keys"
+	setcycle 29 RELATED "R"
+	setcycle 30 correct_response "f"
+	setcycle 30 COLORS "blue"
+	setcycle 30 WORD "internet"
+	setcycle 30 RELATED "R"
+	setcycle 31 correct_response "f"
+	setcycle 31 COLORS "blue"
+	setcycle 31 WORD "computer"
+	setcycle 31 RELATED "U"
+	setcycle 32 correct_response "f"
+	setcycle 32 COLORS "blue"
+	setcycle 32 WORD "Target"
+	setcycle 32 RELATED "U"
+	setcycle 33 correct_response "f"
+	setcycle 33 COLORS "blue"
+	setcycle 33 WORD "Nike"
+	setcycle 33 RELATED "U"
+	setcycle 34 correct_response "f"
+	setcycle 34 COLORS "blue"
+	setcycle 34 WORD "Coca Cola"
+	setcycle 34 RELATED "U"
+	setcycle 35 correct_response "f"
+	setcycle 35 COLORS "blue"
+	setcycle 35 WORD "Yoplait"
+	setcycle 35 RELATED "U"
+	setcycle 36 correct_response "f"
+	setcycle 36 COLORS "blue"
+	setcycle 36 WORD "table"
+	setcycle 36 RELATED "U"
+	setcycle 37 correct_response "f"
+	setcycle 37 COLORS "blue"
+	setcycle 37 WORD "telephone"
+	setcycle 37 RELATED "U"
+	setcycle 38 correct_response "f"
+	setcycle 38 COLORS "blue"
+	setcycle 38 WORD "book"
+	setcycle 38 RELATED "U"
+	setcycle 39 correct_response "f"
+	setcycle 39 COLORS "blue"
+	setcycle 39 WORD "hammer"
+	setcycle 39 RELATED "U"
+	setcycle 40 correct_response "f"
+	setcycle 40 COLORS "blue"
+	setcycle 40 WORD "nails"
+	setcycle 40 RELATED "U"
+	setcycle 41 correct_response "f"
+	setcycle 41 COLORS "blue"
+	setcycle 41 WORD "chair"
+	setcycle 41 RELATED "U"
+	setcycle 42 correct_response "f"
+	setcycle 42 COLORS "blue"
+	setcycle 42 WORD "piano"
+	setcycle 42 RELATED "U"
+	setcycle 43 correct_response "f"
+	setcycle 43 COLORS "blue"
+	setcycle 43 WORD "pencil"
+	setcycle 43 RELATED "U"
+	setcycle 44 correct_response "f"
+	setcycle 44 COLORS "blue"
+	setcycle 44 WORD "paper"
+	setcycle 44 RELATED "U"
+	setcycle 45 correct_response "f"
+	setcycle 45 COLORS "blue"
+	setcycle 45 WORD "eraser"
+	setcycle 45 RELATED "U"
+	setcycle 46 correct_response "f"
+	setcycle 46 COLORS "blue"
+	setcycle 46 WORD "laser"
+	setcycle 46 RELATED "U"
+	setcycle 47 correct_response "f"
+	setcycle 47 COLORS "blue"
+	setcycle 47 WORD "television"
+	setcycle 47 RELATED "U"
+	run Trial_Stroop_1
+
+define loop Stroop_1
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Trial_Stroop_1_1"
+	set description "Repeatedly runs another item"
+	set cycles 48
+	set column_order "COLORS;WORD;RELATED;correct_response"
+	set break_if "never"
+	setcycle 0 correct_response "j"
+	setcycle 0 COLORS "red"
+	setcycle 0 WORD "Google"
+	setcycle 0 RELATED "R"
+	setcycle 1 correct_response "j"
+	setcycle 1 COLORS "red"
+	setcycle 1 WORD "Yahoo"
+	setcycle 1 RELATED "R"
+	setcycle 2 correct_response "j"
+	setcycle 2 COLORS "red"
+	setcycle 2 WORD "screen"
+	setcycle 2 RELATED "R"
+	setcycle 3 correct_response "j"
+	setcycle 3 COLORS "red"
+	setcycle 3 WORD "browser"
+	setcycle 3 RELATED "R"
+	setcycle 4 correct_response "j"
+	setcycle 4 COLORS "red"
+	setcycle 4 WORD "modem"
+	setcycle 4 RELATED "R"
+	setcycle 5 correct_response "j"
+	setcycle 5 COLORS "red"
+	setcycle 5 WORD "keys"
+	setcycle 5 RELATED "R"
+	setcycle 6 correct_response "j"
+	setcycle 6 COLORS "red"
+	setcycle 6 WORD "internet"
+	setcycle 6 RELATED "R"
+	setcycle 7 correct_response "j"
+	setcycle 7 COLORS "red"
+	setcycle 7 WORD "computer"
+	setcycle 7 RELATED "U"
+	setcycle 8 correct_response "j"
+	setcycle 8 COLORS "red"
+	setcycle 8 WORD "Target"
+	setcycle 8 RELATED "U"
+	setcycle 9 correct_response "j"
+	setcycle 9 COLORS "red"
+	setcycle 9 WORD "Nike"
+	setcycle 9 RELATED "U"
+	setcycle 10 correct_response "j"
+	setcycle 10 COLORS "red"
+	setcycle 10 WORD "Coca Cola"
+	setcycle 10 RELATED "U"
+	setcycle 11 correct_response "j"
+	setcycle 11 COLORS "red"
+	setcycle 11 WORD "Yoplait"
+	setcycle 11 RELATED "U"
+	setcycle 12 correct_response "j"
+	setcycle 12 COLORS "red"
+	setcycle 12 WORD "table"
+	setcycle 12 RELATED "U"
+	setcycle 13 correct_response "j"
+	setcycle 13 COLORS "red"
+	setcycle 13 WORD "telephone"
+	setcycle 13 RELATED "U"
+	setcycle 14 correct_response "j"
+	setcycle 14 COLORS "red"
+	setcycle 14 WORD "book"
+	setcycle 14 RELATED "U"
+	setcycle 15 correct_response "j"
+	setcycle 15 COLORS "red"
+	setcycle 15 WORD "hammer"
+	setcycle 15 RELATED "U"
+	setcycle 16 correct_response "j"
+	setcycle 16 COLORS "red"
+	setcycle 16 WORD "nails"
+	setcycle 16 RELATED "U"
+	setcycle 17 correct_response "j"
+	setcycle 17 COLORS "red"
+	setcycle 17 WORD "chair"
+	setcycle 17 RELATED "U"
+	setcycle 18 correct_response "j"
+	setcycle 18 COLORS "red"
+	setcycle 18 WORD "piano"
+	setcycle 18 RELATED "U"
+	setcycle 19 correct_response "j"
+	setcycle 19 COLORS "red"
+	setcycle 19 WORD "pencil"
+	setcycle 19 RELATED "U"
+	setcycle 20 correct_response "j"
+	setcycle 20 COLORS "red"
+	setcycle 20 WORD "paper"
+	setcycle 20 RELATED "U"
+	setcycle 21 correct_response "j"
+	setcycle 21 COLORS "red"
+	setcycle 21 WORD "eraser"
+	setcycle 21 RELATED "U"
+	setcycle 22 correct_response "j"
+	setcycle 22 COLORS "red"
+	setcycle 22 WORD "laser"
+	setcycle 22 RELATED "U"
+	setcycle 23 correct_response "j"
+	setcycle 23 COLORS "red"
+	setcycle 23 WORD "television"
+	setcycle 23 RELATED "U"
+	setcycle 24 correct_response "f"
+	setcycle 24 COLORS "blue"
+	setcycle 24 WORD "Google"
+	setcycle 24 RELATED "R"
+	setcycle 25 correct_response "f"
+	setcycle 25 COLORS "blue"
+	setcycle 25 WORD "Yahoo"
+	setcycle 25 RELATED "R"
+	setcycle 26 correct_response "f"
+	setcycle 26 COLORS "blue"
+	setcycle 26 WORD "screen"
+	setcycle 26 RELATED "R"
+	setcycle 27 correct_response "f"
+	setcycle 27 COLORS "blue"
+	setcycle 27 WORD "browser"
+	setcycle 27 RELATED "R"
+	setcycle 28 correct_response "f"
+	setcycle 28 COLORS "blue"
+	setcycle 28 WORD "modem"
+	setcycle 28 RELATED "R"
+	setcycle 29 correct_response "f"
+	setcycle 29 COLORS "blue"
+	setcycle 29 WORD "keys"
+	setcycle 29 RELATED "R"
+	setcycle 30 correct_response "f"
+	setcycle 30 COLORS "blue"
+	setcycle 30 WORD "internet"
+	setcycle 30 RELATED "R"
+	setcycle 31 correct_response "f"
+	setcycle 31 COLORS "blue"
+	setcycle 31 WORD "computer"
+	setcycle 31 RELATED "U"
+	setcycle 32 correct_response "f"
+	setcycle 32 COLORS "blue"
+	setcycle 32 WORD "Target"
+	setcycle 32 RELATED "U"
+	setcycle 33 correct_response "f"
+	setcycle 33 COLORS "blue"
+	setcycle 33 WORD "Nike"
+	setcycle 33 RELATED "U"
+	setcycle 34 correct_response "f"
+	setcycle 34 COLORS "blue"
+	setcycle 34 WORD "Coca Cola"
+	setcycle 34 RELATED "U"
+	setcycle 35 correct_response "f"
+	setcycle 35 COLORS "blue"
+	setcycle 35 WORD "Yoplait"
+	setcycle 35 RELATED "U"
+	setcycle 36 correct_response "f"
+	setcycle 36 COLORS "blue"
+	setcycle 36 WORD "table"
+	setcycle 36 RELATED "U"
+	setcycle 37 correct_response "f"
+	setcycle 37 COLORS "blue"
+	setcycle 37 WORD "telephone"
+	setcycle 37 RELATED "U"
+	setcycle 38 correct_response "f"
+	setcycle 38 COLORS "blue"
+	setcycle 38 WORD "book"
+	setcycle 38 RELATED "U"
+	setcycle 39 correct_response "f"
+	setcycle 39 COLORS "blue"
+	setcycle 39 WORD "hammer"
+	setcycle 39 RELATED "U"
+	setcycle 40 correct_response "f"
+	setcycle 40 COLORS "blue"
+	setcycle 40 WORD "nails"
+	setcycle 40 RELATED "U"
+	setcycle 41 correct_response "f"
+	setcycle 41 COLORS "blue"
+	setcycle 41 WORD "chair"
+	setcycle 41 RELATED "U"
+	setcycle 42 correct_response "f"
+	setcycle 42 COLORS "blue"
+	setcycle 42 WORD "piano"
+	setcycle 42 RELATED "U"
+	setcycle 43 correct_response "f"
+	setcycle 43 COLORS "blue"
+	setcycle 43 WORD "pencil"
+	setcycle 43 RELATED "U"
+	setcycle 44 correct_response "f"
+	setcycle 44 COLORS "blue"
+	setcycle 44 WORD "paper"
+	setcycle 44 RELATED "U"
+	setcycle 45 correct_response "f"
+	setcycle 45 COLORS "blue"
+	setcycle 45 WORD "eraser"
+	setcycle 45 RELATED "U"
+	setcycle 46 correct_response "f"
+	setcycle 46 COLORS "blue"
+	setcycle 46 WORD "laser"
+	setcycle 46 RELATED "U"
+	setcycle 47 correct_response "f"
+	setcycle 47 COLORS "blue"
+	setcycle 47 WORD "television"
+	setcycle 47 RELATED "U"
+	run Trial_Stroop_1_1
+
+define sketchpad Stroop_1_Correct
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答對了 x=0 y=0 z_index=0
+
+define sketchpad Stroop_1_Correct_1
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答對了 x=0 y=0 z_index=0
+
+define sketchpad Stroop_1_Correct_2
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答對了 x=0 y=0 z_index=0
+
+define sketchpad Stroop_1_Wrong
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答錯了 x=0 y=0 z_index=0
+
+define sketchpad Stroop_1_Wrong_1
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答錯了 x=0 y=0 z_index=0
+
+define sketchpad Stroop_1_Wrong_2
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=答錯了 x=0 y=0 z_index=0
+
+define logger Stroop_1_logger
+	set description "Logs experimental data"
+	set auto_log "yes"
+
+define logger Stroop_1_logger_1
+	set description "Logs experimental data"
+	set auto_log "yes"
+
+define logger Stroop_1_logger_2
+	set description "Logs experimental data"
+	set auto_log "yes"
+
+define sketchpad Stroop_1_pad
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color="[COLORS]" font_bold=no font_family=mono font_italic=no font_size=38 html=yes show_if=always text="[WORD]" x=0 y=0 z_index=0
+
+define sketchpad Stroop_1_pad_1
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color="[COLORS]" font_bold=no font_family=mono font_italic=no font_size=38 html=yes show_if=always text="[WORD]" x=0 y=0 z_index=0
+
+define sketchpad Stroop_1_pad_2
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color="[COLORS]" font_bold=no font_family=mono font_italic=no font_size=38 html=yes show_if=always text="[WORD]" x=0 y=0 z_index=0
+
+define keyboard_response Stroop_1_response
+	set timeout 2000
+	set flush "no"
+	set duration "keypress"
+	set description "Collects keyboard responses"
+	set allowed_responses "j;f"
+
+define keyboard_response Stroop_1_response_1
+	set timeout 2000
+	set flush "no"
+	set duration "keypress"
+	set description "Collects keyboard responses"
+	set allowed_responses "j;f"
+
+define keyboard_response Stroop_1_response_2
+	set timeout 2000
+	set flush "no"
+	set duration "keypress"
+	set description "Collects keyboard responses"
+	set allowed_responses "j;f"
+
+define loop Stroop_2
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Trial_Stroop_1_1"
+	set description "Repeatedly runs another item"
+	set cycles 48
+	set column_order "COLORS;WORD;RELATED;correct_response"
+	set break_if "never"
+	setcycle 0 correct_response "j"
+	setcycle 0 COLORS "red"
+	setcycle 0 WORD "Google"
+	setcycle 0 RELATED "R"
+	setcycle 1 correct_response "j"
+	setcycle 1 COLORS "red"
+	setcycle 1 WORD "Yahoo"
+	setcycle 1 RELATED "R"
+	setcycle 2 correct_response "j"
+	setcycle 2 COLORS "red"
+	setcycle 2 WORD "screen"
+	setcycle 2 RELATED "R"
+	setcycle 3 correct_response "j"
+	setcycle 3 COLORS "red"
+	setcycle 3 WORD "browser"
+	setcycle 3 RELATED "R"
+	setcycle 4 correct_response "j"
+	setcycle 4 COLORS "red"
+	setcycle 4 WORD "modem"
+	setcycle 4 RELATED "R"
+	setcycle 5 correct_response "j"
+	setcycle 5 COLORS "red"
+	setcycle 5 WORD "keys"
+	setcycle 5 RELATED "R"
+	setcycle 6 correct_response "j"
+	setcycle 6 COLORS "red"
+	setcycle 6 WORD "internet"
+	setcycle 6 RELATED "R"
+	setcycle 7 correct_response "j"
+	setcycle 7 COLORS "red"
+	setcycle 7 WORD "computer"
+	setcycle 7 RELATED "U"
+	setcycle 8 correct_response "j"
+	setcycle 8 COLORS "red"
+	setcycle 8 WORD "Target"
+	setcycle 8 RELATED "U"
+	setcycle 9 correct_response "j"
+	setcycle 9 COLORS "red"
+	setcycle 9 WORD "Nike"
+	setcycle 9 RELATED "U"
+	setcycle 10 correct_response "j"
+	setcycle 10 COLORS "red"
+	setcycle 10 WORD "Coca Cola"
+	setcycle 10 RELATED "U"
+	setcycle 11 correct_response "j"
+	setcycle 11 COLORS "red"
+	setcycle 11 WORD "Yoplait"
+	setcycle 11 RELATED "U"
+	setcycle 12 correct_response "j"
+	setcycle 12 COLORS "red"
+	setcycle 12 WORD "table"
+	setcycle 12 RELATED "U"
+	setcycle 13 correct_response "j"
+	setcycle 13 COLORS "red"
+	setcycle 13 WORD "telephone"
+	setcycle 13 RELATED "U"
+	setcycle 14 correct_response "j"
+	setcycle 14 COLORS "red"
+	setcycle 14 WORD "book"
+	setcycle 14 RELATED "U"
+	setcycle 15 correct_response "j"
+	setcycle 15 COLORS "red"
+	setcycle 15 WORD "hammer"
+	setcycle 15 RELATED "U"
+	setcycle 16 correct_response "j"
+	setcycle 16 COLORS "red"
+	setcycle 16 WORD "nails"
+	setcycle 16 RELATED "U"
+	setcycle 17 correct_response "j"
+	setcycle 17 COLORS "red"
+	setcycle 17 WORD "chair"
+	setcycle 17 RELATED "U"
+	setcycle 18 correct_response "j"
+	setcycle 18 COLORS "red"
+	setcycle 18 WORD "piano"
+	setcycle 18 RELATED "U"
+	setcycle 19 correct_response "j"
+	setcycle 19 COLORS "red"
+	setcycle 19 WORD "pencil"
+	setcycle 19 RELATED "U"
+	setcycle 20 correct_response "j"
+	setcycle 20 COLORS "red"
+	setcycle 20 WORD "paper"
+	setcycle 20 RELATED "U"
+	setcycle 21 correct_response "j"
+	setcycle 21 COLORS "red"
+	setcycle 21 WORD "eraser"
+	setcycle 21 RELATED "U"
+	setcycle 22 correct_response "j"
+	setcycle 22 COLORS "red"
+	setcycle 22 WORD "laser"
+	setcycle 22 RELATED "U"
+	setcycle 23 correct_response "j"
+	setcycle 23 COLORS "red"
+	setcycle 23 WORD "television"
+	setcycle 23 RELATED "U"
+	setcycle 24 correct_response "f"
+	setcycle 24 COLORS "blue"
+	setcycle 24 WORD "Google"
+	setcycle 24 RELATED "R"
+	setcycle 25 correct_response "f"
+	setcycle 25 COLORS "blue"
+	setcycle 25 WORD "Yahoo"
+	setcycle 25 RELATED "R"
+	setcycle 26 correct_response "f"
+	setcycle 26 COLORS "blue"
+	setcycle 26 WORD "screen"
+	setcycle 26 RELATED "R"
+	setcycle 27 correct_response "f"
+	setcycle 27 COLORS "blue"
+	setcycle 27 WORD "browser"
+	setcycle 27 RELATED "R"
+	setcycle 28 correct_response "f"
+	setcycle 28 COLORS "blue"
+	setcycle 28 WORD "modem"
+	setcycle 28 RELATED "R"
+	setcycle 29 correct_response "f"
+	setcycle 29 COLORS "blue"
+	setcycle 29 WORD "keys"
+	setcycle 29 RELATED "R"
+	setcycle 30 correct_response "f"
+	setcycle 30 COLORS "blue"
+	setcycle 30 WORD "internet"
+	setcycle 30 RELATED "R"
+	setcycle 31 correct_response "f"
+	setcycle 31 COLORS "blue"
+	setcycle 31 WORD "computer"
+	setcycle 31 RELATED "U"
+	setcycle 32 correct_response "f"
+	setcycle 32 COLORS "blue"
+	setcycle 32 WORD "Target"
+	setcycle 32 RELATED "U"
+	setcycle 33 correct_response "f"
+	setcycle 33 COLORS "blue"
+	setcycle 33 WORD "Nike"
+	setcycle 33 RELATED "U"
+	setcycle 34 correct_response "f"
+	setcycle 34 COLORS "blue"
+	setcycle 34 WORD "Coca Cola"
+	setcycle 34 RELATED "U"
+	setcycle 35 correct_response "f"
+	setcycle 35 COLORS "blue"
+	setcycle 35 WORD "Yoplait"
+	setcycle 35 RELATED "U"
+	setcycle 36 correct_response "f"
+	setcycle 36 COLORS "blue"
+	setcycle 36 WORD "table"
+	setcycle 36 RELATED "U"
+	setcycle 37 correct_response "f"
+	setcycle 37 COLORS "blue"
+	setcycle 37 WORD "telephone"
+	setcycle 37 RELATED "U"
+	setcycle 38 correct_response "f"
+	setcycle 38 COLORS "blue"
+	setcycle 38 WORD "book"
+	setcycle 38 RELATED "U"
+	setcycle 39 correct_response "f"
+	setcycle 39 COLORS "blue"
+	setcycle 39 WORD "hammer"
+	setcycle 39 RELATED "U"
+	setcycle 40 correct_response "f"
+	setcycle 40 COLORS "blue"
+	setcycle 40 WORD "nails"
+	setcycle 40 RELATED "U"
+	setcycle 41 correct_response "f"
+	setcycle 41 COLORS "blue"
+	setcycle 41 WORD "chair"
+	setcycle 41 RELATED "U"
+	setcycle 42 correct_response "f"
+	setcycle 42 COLORS "blue"
+	setcycle 42 WORD "piano"
+	setcycle 42 RELATED "U"
+	setcycle 43 correct_response "f"
+	setcycle 43 COLORS "blue"
+	setcycle 43 WORD "pencil"
+	setcycle 43 RELATED "U"
+	setcycle 44 correct_response "f"
+	setcycle 44 COLORS "blue"
+	setcycle 44 WORD "paper"
+	setcycle 44 RELATED "U"
+	setcycle 45 correct_response "f"
+	setcycle 45 COLORS "blue"
+	setcycle 45 WORD "eraser"
+	setcycle 45 RELATED "U"
+	setcycle 46 correct_response "f"
+	setcycle 46 COLORS "blue"
+	setcycle 46 WORD "laser"
+	setcycle 46 RELATED "U"
+	setcycle 47 correct_response "f"
+	setcycle 47 COLORS "blue"
+	setcycle 47 WORD "television"
+	setcycle 47 RELATED "U"
+	run Trial_Stroop_1_1
+
+define sequence Trial_Easy
+	set flush_keyboard "no"
+	set description "Runs a number of items in sequence"
+	run Easy_pad always
+	run Easy_response always
+	run Easy_Correct "[correct]=1"
+	run Easy_Wrong "[correct]=0"
+	run Easy_logger always
+
+define sequence Trial_Easy_1
+	set flush_keyboard "no"
+	set description "Runs a number of items in sequence"
+	run Easy_pad_1 always
+	run Easy_response_1 always
+	run Easy_Correct_1 "[correct]=1"
+	run Easy_Wrong_1 "[correct]=0"
+	run Easy_logger_1 always
+
+define sequence Trial_Hard
+	set flush_keyboard "no"
+	set description "Runs a number of items in sequence"
+	run Hard_pad always
+	run Hard_response always
+	run Hard_Correct "[correct]=1"
+	run Hard_Wrong "[correct]=0"
+	run Hard_logger always
+
+define sequence Trial_Hard_1
+	set flush_keyboard "no"
+	set description "Runs a number of items in sequence"
+	run Hard_pad_1 always
+	run Hard_response_1 always
+	run Hard_Correct_1 "[correct]=1"
+	run Hard_Wrong_1 "[correct]=0"
+	run Hard_logger_1 always
+
+define sequence Trial_Stroop_1
+	set flush_keyboard "no"
+	set description "Runs a number of items in sequence"
+	run Stroop_1_pad always
+	run Stroop_1_response always
+	run Stroop_1_Correct "[correct]=1"
+	run Stroop_1_Wrong "[correct]=0"
+	run Stroop_1_logger always
+
+define sequence Trial_Stroop_1_1
+	set flush_keyboard "no"
+	set description "Runs a number of items in sequence"
+	run Stroop_1_pad_1 always
+	run Stroop_1_response_1 always
+	run Stroop_1_Correct_1 "[correct]=1"
+	run Stroop_1_Wrong_1 "[correct]=0"
+	run Stroop_1_logger_1 always
+
+define sequence Trial_Stroop_1_2
+	set flush_keyboard "no"
+	set description "Runs a number of items in sequence"
+	run Stroop_1_pad_1 always
+	run Stroop_1_response_1 always
+	run Stroop_1_Correct_1 "[correct]=1"
+	run Stroop_1_Wrong_1 "[correct]=0"
+	run Stroop_1_logger_1 always
+
+define sketchpad break_1
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=56 html=yes show_if=always text=休息一下 x=0 y=-256 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=40 html=yes show_if=always text="看到<font color = red>紅色字</font>，立刻按j<br />看到<font color = blue>藍色字</font>，立刻按f" x=0 y=0 z_index=0
+
+define sketchpad break_1_1
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=56 html=yes show_if=always text=休息一下 x=0 y=-256 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=40 html=yes show_if=always text="看到<font color = red>紅色字</font>，立刻按j<br />看到<font color = blue>藍色字</font>，立刻按f" x=0 y=0 z_index=0
+
+define sketchpad break_2
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=48 html=yes show_if=always text=第二部分問題 x=0.0 y=-256.0 z_index=0
+
+define sketchpad break_2_1
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=48 html=yes show_if=always text=第二部分問題 x=0 y=-256 z_index=0
+
+define sketchpad break_3
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=56 html=yes show_if=always text=休息一下 x=0 y=-256 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=40 html=yes show_if=always text="看到<font color = red>紅色字</font>，立刻按j<br />看到<font color = blue>藍色字</font>，立刻按f" x=0 y=0 z_index=0
+
+define sketchpad break_3_1
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=56 html=yes show_if=always text=休息一下 x=0 y=-256 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=40 html=yes show_if=always text="看到<font color = red>紅色字</font>，立刻按j<br />看到<font color = blue>藍色字</font>，立刻按f" x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard "yes"
+	set description "Runs a number of items in sequence"
+	run welcome always
+	run experiment_loop_even "[subject_parity] = even"
+	run experiment_loop_odd "[subject_parity] = odd"
+	run goodbye always
+
+define loop experiment_loop_even
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Easy_First"
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set column_order ""
+	set break_if "never"
+	run Easy_First
+
+define loop experiment_loop_odd
+	set skip 0
+	set repeat 1
+	set order "random"
+	set offset "no"
+	set item "Hard_First"
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set column_order ""
+	set break_if "never"
+	run Hard_First
+
+define sketchpad goodbye
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=實驗結束 x=0 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=36 html=yes show_if=always text=請按任意鍵結束程式 x=0 y=64 z_index=0
+
+define sketchpad welcome
+	set start_response_interval "no"
+	set reset_variables "no"
+	set duration "keypress"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=32 html=yes show_if=always text="歡迎參加 </br><br /><b>冷知識小測驗</b>" x=0 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=32 html=yes show_if=always text="1. 我們準備32道冷知識問題，測試你對冷知識的了解程度。<br />2. 32道問題分為兩部分，都是非題設計。請你讀完一道問題</br><br />，按下<font color = red>是</font>或<font color = blue>否</font>回答。除了不能查閱資料或詢問他人，解題</br><br />時間沒有限制。作答完畢會回饋是否正確。</br><br />3. 完成一個部分，會有一段緩衝作業。請依指示完成。" x=32.0 y=0.0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family="chinese-japanese-korean" font_italic=no font_size=48 html=yes show_if=always text=按空白鍵繼續 x=0.0 y=224.0 z_index=0
+
